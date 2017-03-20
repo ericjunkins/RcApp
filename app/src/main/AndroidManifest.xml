@@ -15,8 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DisplayMessageActivity" />
-        <activity android:name=".JoystickView"></activity>
+        <activity android:name=".JoystickView" />
+        <activity android:name=".ControlScreen"></activity>
     </application>
 
 </manifest>
