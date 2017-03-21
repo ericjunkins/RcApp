@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.content.Context;
 import android.view.View;
 
-public class ControlStickView extends SurfaceView implements SurfaceHolder.Callback, View.OnTouchListener {
+public class ControlStickViewRight extends SurfaceView implements SurfaceHolder.Callback, View.OnTouchListener {
 
     private float centerX;
     private float centerY;
@@ -19,19 +19,19 @@ public class ControlStickView extends SurfaceView implements SurfaceHolder.Callb
     private float hatRadius;
     //public JoystickListener joystickCallback;
 
-    public ControlStickView(Context context){
+    public ControlStickViewRight(Context context){
         super(context);
         getHolder().addCallback(this);
         setOnTouchListener(this);
     }
 
-    public ControlStickView(Context context, AttributeSet attributes, int style){
+    public ControlStickViewRight(Context context, AttributeSet attributes, int style){
         super(context,attributes,style);
         getHolder().addCallback(this);
         setOnTouchListener(this);
     }
 
-    public ControlStickView(Context context, AttributeSet attributes){
+    public ControlStickViewRight(Context context, AttributeSet attributes){
         super(context, attributes);
         getHolder().addCallback(this);
         setOnTouchListener(this);
@@ -98,14 +98,14 @@ public class ControlStickView extends SurfaceView implements SurfaceHolder.Callb
             if (myEvent.getAction() != myEvent.ACTION_UP) {
                 float displacement = (float) Math.sqrt(Math.pow(myEvent.getX() - centerX, 2)+ Math.pow(myEvent.getY() - centerY,2));
                 if (displacement < baseRadius) {
-                    drawJoystick(myEvent.getX(), centerY);
+                    drawJoystick(centerX, myEvent.getY());
                     ///joystickCallback.onJoystickMoved((myEvent.getX() - centerX) / baseRadius, (myEvent.getY() - centerY) / baseRadius, getId());
                 }
                 else{
                     float ratio = baseRadius/displacement;
                     float constrainedX = centerX + (myEvent.getX()-centerX)*ratio;
                     float constrainedY = centerY + (myEvent.getY()-centerY)*ratio;
-                    drawJoystick(constrainedX,centerY);
+                    drawJoystick(centerX,constrainedY);
                 }
             } else {
                 drawJoystick(centerX, centerY);

@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".JoystickView" />
-        <activity android:name=".ControlScreen"></activity>
+        <activity android:name=".ControlScreen" />
+        <activity android:name=".ControlStickViewRight"></activity>
     </application>
 
 </manifest>
